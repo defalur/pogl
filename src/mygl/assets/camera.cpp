@@ -1,6 +1,6 @@
 #include "camera.h"
-#include "gl_err.h"
-#include "clock.h"
+#include "mygl/gl_err.h"
+#include "utils/clock.h"
 
 Camera::Camera(const float left, const float right, const float bottom, const float top, const float znear,
                const float zfar)
@@ -51,7 +51,7 @@ mygl::matrix4 Camera::get_projection_matrix() const
     return projection;
 }
 
-void Camera::set_prog_proj(mygl::program *p) const
+void Camera::set_prog_proj(mygl::Program *p) const
 {
     GLint mat_proj_id;
     GLint mat_obj_id;
@@ -67,7 +67,7 @@ void Camera::rotate(mygl::Vec3 rotation)
     this->projection.rotate(rotation);
 }
 
-void Camera::set_prog(mygl::program* p)
+void Camera::set_prog(mygl::Program* p)
 {
     prog = p;
 }

@@ -2,19 +2,19 @@
 #define BUMP_MATERIAL_H
 
 #include <memory>
-#include "texturemanager.h"
-#include "program.h"
+#include "mygl/texturemanager.h"
+#include "mygl/program/Program.h"
 
 class Material
 {
 public:
-    Material(std::shared_ptr<TextureManager> manager, mygl::program* prog,
+    Material(std::shared_ptr<TextureManager> manager, mygl::Program* prog,
             unsigned texture);
-    Material(std::shared_ptr<TextureManager> manager, mygl::program* prog,
+    Material(std::shared_ptr<TextureManager> manager, mygl::Program* prog,
             unsigned texture, unsigned bump);
-    Material(std::shared_ptr<TextureManager> manager, mygl::program* prog,
+    Material(std::shared_ptr<TextureManager> manager, mygl::Program* prog,
             std::string texture);
-    Material(std::shared_ptr<TextureManager> manager, mygl::program* prog,
+    Material(std::shared_ptr<TextureManager> manager, mygl::Program* prog,
             std::string texture, std::string bump);
 
     void set_texture(unsigned value);
@@ -28,7 +28,7 @@ private:
     unsigned texture_id;
     unsigned  bump_id;
     bool use_bump;
-    mygl::program* program;
+    mygl::Program* program;
 };
 
 

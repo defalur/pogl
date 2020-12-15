@@ -3,10 +3,9 @@
 //
 
 #include "scene.h"
-#include "waypoint_trajectory.h"
 #include "cameratracking.h"
 
-void Scene::load_scene(const std::string &file_path, mygl::program *program) {
+void Scene::load_scene(const std::string &file_path, mygl::Program *program) {
     YAML::Node root = YAML::LoadFile(file_path);
     if (!root["scene"]) {
         throw std::invalid_argument(file_path + ": No scene was found.");

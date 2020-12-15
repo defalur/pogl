@@ -10,21 +10,26 @@
 #include <map>
 #include <memory>
 
+#include "utils/vector.h"
+
 #include "mesh.h"
 #include "camera.h"
-#include "light.h"
-#include "vector.h"
 #include "material.h"
-#include "inputmanager.h"
-#include "object_renderer.h"
-#include "trajectory_function.h"
 #include "cameratracking.h"
+
+#include "mygl/lightmanager.h"
+#include "mygl/inputmanager.h"
+#include "mygl/object_renderer.h"
+
+#include "trajectory/trajectory_function.h"
+#include "trajectory/waypoint_trajectory.h"
+
 
 class Scene {
 public:
     Scene() {}
 
-    void load_scene(const std::string& file_path, mygl::program* program);
+    void load_scene(const std::string& file_path, mygl::Program* program);
 
     std::shared_ptr<Camera> init_camera(const YAML::Node& cam_node);
     void init_mtls(const YAML::Node& mtls);
@@ -40,7 +45,7 @@ public:
 
 
 private:
-    mygl::program* prog_;
+    mygl::Program* prog_;
 
     std::shared_ptr<TextureManager> texture_mngr_;
     std::shared_ptr<LightManager> light_mngr_;

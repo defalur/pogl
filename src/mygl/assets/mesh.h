@@ -5,8 +5,9 @@
 #include <string>
 #include <memory>
 
-#include "matrix4.h"
-#include "movable.h"
+#include "mygl/movable.h"
+#include "utils/vector.h"
+#include "utils/matrix4.h"
 
 namespace mygl
 {
